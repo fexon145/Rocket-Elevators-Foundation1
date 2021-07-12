@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  author: 1
+  customer_id: 1
+  building_id: 1
+  battery_id: 1
+  column_id: 1
+  elevator_id: 1
+  employee_id: 1
+  startdate: 2021-07-12 12:42:07
+  enddate: MyString
+  result: MyString
+  report: MyText
+  status: MyString
+
+two:
+  author: 1
+  customer_id: 1
+  building_id: 1
+  battery_id: 1
+  column_id: 1
+  elevator_id: 1
+  employee_id: 1
+  startdate: 2021-07-12 12:42:07
+  enddate: MyString
+  result: MyString
+  report: MyText
+  status: MyString

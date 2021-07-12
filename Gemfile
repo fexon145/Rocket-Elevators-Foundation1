@@ -82,7 +82,6 @@ gem 'pg', '~> 0.18.4'
 
 gem 'rails_admin_google_map'
 
-gem 'figaro'
 
 gem "slack-notifier"
 
