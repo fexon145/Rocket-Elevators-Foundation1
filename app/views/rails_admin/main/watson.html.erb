@@ -1,0 +1,19 @@
+<%# <audio controls src="/greetings" type="audio/wav"> %>
+<%# <button method="get" action="/greetings">Generate</button> %>
+<%= audio_tag "welcome.wav", autoplay: false, class: "audio"%>
+<p class="btn btn-primary audiobutton">Play Audio</p>
+<%= javascript_tag "window._token = '#{form_authenticity_token}'" %>
+<script>
+$(".audiobutton").on("click", function(){
+$.ajax({
+            url:'/watson/greetings',
+            type:'POST',
+            dataType:'json',
+            data:{
+                authenticity_token: window._token
+            }
+            });
+$(".audio")[0].currentTime = 0;
+return $(".audio")[0].play();
+}); 
+</script>

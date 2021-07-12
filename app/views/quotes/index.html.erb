@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Quotes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Product line</th>
+      <th>Number of elevator</th>
+      <th>Unit price of each elevator</th>
+      <th>Total price of elevators</th>
+      <th>Installation fees</th>
+      <th>Final price</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @quotes.each do |quote| %>
+      <tr>
+        <td><%= quote.name %></td>
+        <td><%= quote.product_line %></td>
+        <td><%= quote.number_of_elevator %></td>
+        <td><%= quote.unit_price_of_each_elevator %></td>
+        <td><%= quote.total_price_of_elevators %></td>
+        <td><%= quote.installation_fees %></td>
+        <td><%= quote.final_price %></td>
+        <td><%= link_to 'Show', quote %></td>
+        <td><%= link_to 'Edit', edit_quote_path(quote) %></td>
+        <td><%= link_to 'Destroy', quote, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Quote', new_quote_path %>

@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="icon" type="image/png" href="<%= asset_path('faviconlogo.png') %>" />
+		<meta charset="utf-8" />
+		<title>Rocket Elevators</title>
+		<meta name="description" content="" />
+		<meta name="Author" content="Dorin Grigoras [www.stepofweb.com]" />
+
+		<!-- mobile settings -->
+		<meta name="viewport" content="width=device-width, initial-scale=1" /> 
+
+		<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+
+		<!-- WEB FONTS : use %7C instead of | (pipe) -->
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700" rel="stylesheet" type="text/css" />
+
+	</head>
+
+	<body>
+		</div>
+		<!-- /SLIDE TOP -->
+
+
+		<!-- wrapper -->
+		<div id="wrapper">
+
+			<!-- 
+				AVAILABLE HEADER CLASSES
+
+				Default nav height: 96px
+				.header-md 		= 70px nav height
+				.header-sm 		= 60px nav height
+
+				.b-0 		= remove bottom border (only with transparent use)
+				.transparent	= transparent header
+				.translucent	= translucent header
+				.sticky			= sticky header
+				.static			= static header
+				.dark			= dark header
+				.bottom			= header on bottom
+				
+				shadow-before-1 = shadow 1 header top
+				shadow-after-1 	= shadow 1 header bottom
+				shadow-before-2 = shadow 2 header top
+				shadow-after-2 	= shadow 2 header bottom
+				shadow-before-3 = shadow 3 header top
+				shadow-after-3 	= shadow 3 header bottom
+
+				.clearfix		= required for mobile menu, do not remove!
+
+				Example Usage:  class="clearfix sticky header-sm transparent b-0"
+			-->
+			<div id="header" class="navbar-toggleable-md sticky header-md clearfix">
+				 
+				<!-- TOP NAV -->
+				<header id="topNav">
+					<div class="container">
+
+						<!-- Mobile Menu Button -->
+						<button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
+							<i class="fa fa-bars"></i>
+						</button>
+
+						<!-- Logo -->
+						<a class="logo float-left scrollTo" href="#top" style="background-color: #FFFFFF">
+							<img src="<%= asset_path('R2.png') %>" alt="" />
+						</a>
+
+						<!-- 
+							Top Nav 
+							
+							AVAILABLE CLASSES:
+							submenu-dark = dark sub menu
+						-->
+						<div class="navbar-collapse collapse float-right nav-main-collapse submenu-dark">
+							<nav class="nav-main">
+
+								<!-- 
+									.nav-onepage
+									Required for onepage navigation links
+									
+									Add .external for an external link!
+								-->
+								<ul id="topMain" class="nav nav-pills nav-main nav-onepage">
+									<li class="active"><!-- HOME -->
+										<a id="home-nav" href="index">
+											HOME
+										</a>
+									</li>
+									<li><!-- SERVICES -->
+										<li class="dropdown">
+										<a class="dropdown-toggle" id="services-nav" href="index#services" >
+										  SERVICES
+											</a>
+										<ul class="dropdown-menu">
+										  <li><a href="residential">Residential</a></li>
+										  <li><a href="commercial">Commercial</a></li>
+										</ul>
+									</li>
+									</li>
+									<li><!-- PORTFOLIO -->
+										<a id="portfolio-nav" href="index#PORTFOLIO">
+											PORTFOLIO
+										</a>
+									</li>
+									<li><!-- NEWS -->
+										<a id="news-nav" href="index#news">
+											NEWS
+										</a>
+									</li>
+
+									<li><!-- CLIENTS -->
+										<a id="clients-nav" href="index#clients">
+											CLIENTS
+										</a>
+									</li>
+
+									<li><!-- CONTACT -->
+										<a id="contact-nav" href="index#contact">
+											CONTACT
+										</a>
+									</li>
+									<% if user_signed_in? && current_user&.is_employee?(current_user)%>
+									<li><!-- ADMIN -->
+										<a id="admin-nav" href="/admin">
+											ADMIN
+										</a>
+									</li>
+									<% end %>
+									<% if user_signed_in? %> 
+                                    <li><!-- USERS logout -->
+                                    <%= link_to "SIGN OUT", destroy_user_session_path, :method => :delete %>
+                                    </li>
+                                    <% else %>
+                                    <li><!-- USERS login -->
+                                     <%= link_to "LOGIN", new_user_session_path %>
+                                    </li>
+                                    <% end %>
+			<%# <li><!-- USERS logout -->
+			<%= link_to "SIGN OUT", destroy_user_session_path, :method => :delete %>
+								</ul>
+
+							</nav>
+						</div>
+
+					</div>
+				</header>
+				<!-- /Top Nav -->
+
+			</div>
+
+
+
+			<!-- REVOLUTION SLIDER -->
+			<div class="slider fullwidthbanner-container roundedcorners">
+				<!--
+					Navigation Styles:
+					
+						data-navigationStyle="" theme default navigation
+						
+						data-navigationStyle="preview1"
+						data-navigationStyle="preview2"
+						data-navigationStyle="preview3"
+						data-navigationStyle="preview4"
+						
+					Bottom Shadows
+						data-shadow="1"
+						data-shadow="2"
+						data-shadow="3"
+						
+					Slider Height (do not use on fullscreen mode)
+						data-height="300"
+						data-height="350"
+						data-height="400"
+						data-height="450"
+						data-height="500"
+						data-height="550"
+						data-height="600"
+						data-height="650"
+						data-height="700"
+						data-height="750"
+						data-height="800"
+				-->
+				<div class="fullwidthbanner" data-height="600" data-shadow="0" data-navigationStyle="preview2">
+					<ul class="hide">
+					
+						<!-- SLIDE  -->
+						<li data-transition="parallaxtobottom" data-slotamount="7" data-masterspeed="600"  data-saveperformance="off"  data-title="Our Mission">
+							<!-- MAIN IMAGE -->
+							<img src="<%= asset_path('AdobeStock_162479912.jpeg') %>"  alt="cover image"  data-bgposition="center" data-bgfit="cover" data-bgrepeat="no-repeat">
+
+							<div class="tp-caption white_big skewfromleft tp-resizeme"
+								data-x="120"
+								data-y="100" 
+								data-speed="400"
+								data-start="1500"
+								data-easing="Power3.easeInOut"
+								data-splitin="words"
+								data-splitout="none"
+								data-elementdelay="0.1"
+								data-endelementdelay="0.1"
+								data-endspeed="600"
+								style="z-index: 2; color:rgb(5, 5, 5); font-size:65px; line-height:85px; font-weight:bold; letter-spacing:0; text-shadow:none;">
+									Elevate Safety, Speed and Style
+							</div>
+
+							<div class="tp-caption skewfromleft tp-resizeme  un-button-2-lg"
+								data-x="340"
+								data-y="300" 
+								data-speed="300"
+								data-start="2500"
+								data-easing="Power3.easeInOut"
+								data-splitin="none"
+								data-splitout="none"
+								data-elementdelay="0.1"
+								data-endelementdelay="0.1"
+								data-endspeed="300"
+
+								style="z-index: 5; max-width: auto; max-height: auto; white-space: nowrap;">
+									<a class="btn btn-danger btn-lg" href="index#services">OUR SERVICES &nbsp; <i class="fa fa-angle-right"></i></a>
+							</div>
+							<div class="tp-caption sfb tp-resizeme"
+							data-x="640"
+							data-y="300" 
+							data-speed="500"
+							data-start="1500"
+							data-easing="Power3.easeInOut"
+							data-splitin="none"
+							data-splitout="none"
+							data-elementdelay="0.1"
+							data-endelementdelay="0.1"
+							data-endspeed="500"
+							style="z-index: 6; max-width: auto; max-height: auto; white-space: nowrap;">
+								<a class="btn btn-primary btn-lg" href="quote">GET A QUOTE &nbsp; <i class="fa fa-angle-right"></i></a>
+						</li>
+
+						<!-- SLIDE  -->
+						<li data-transition="parallaxtotop" data-slotamount="7" data-masterspeed="300"  data-saveperformance="off" data-title="Residential Services">
+							<!-- MAIN IMAGE -->
+							<img src="<%= asset_path('AdobeStock_33298664.jpeg') %>" alt="cover image"  data-bgposition="center" data-bgfit="cover" data-bgrepeat="no-repeat">
+
+							<div class="overlay dark-4"><!-- dark overlay [0 to 9 opacity] --></div>
+
+							<div class="tp-caption font-roboto skewfromleft tp-resizeme"
+								data-x="140"
+								data-y="100" 
+								data-speed="500"
+								data-start="1500"
+								data-easing="Cubic.easeOut"
+								data-splitin="none"
+								data-splitout="none"
+								data-elementdelay="0.1"
+								data-endelementdelay="0.1"
+								data-endspeed="500"
+								style="z-index: 2; color:rgb(255, 255, 255); font-size:65px; line-height:85px; font-weight:bold; letter-spacing:0; text-shadow:none;">
+									Residential building services <br />
+									
+							</div>
+
+							<div class="tp-caption skewfromrightshort tp-resizeme"
+								data-x="205"
+								data-y="300" 
+								data-speed="500"
+								data-start="1000"
+								data-easing="easeInCirc"
+								data-splitin="none"
+								data-splitout="none"
+								data-elementdelay="0.1"
+								data-endelementdelay="0.1"
+								data-endspeed="500"
+								style="z-index: 3; font-size:20px; color:rgb(255, 255, 255); font-weight:300; text-shadow:none;">
+									The dream of moving around your house the easiest way possible is at your reach! <br> 
+									Explore our offers to save countless amount walking and get the rest you deserve.
+							</div>
+
+							<div class="tp-caption sfb tp-resizeme"
+								data-x="505"
+								data-y="440" 
+								data-speed="500"
+								data-start="1500"
+								data-easing="Power3.easeIn"
+								data-splitin="none"
+								data-splitout="none"
+								data-elementdelay="1"
+								data-endelementdelay="0.1"
+								data-endspeed="500"
+								style="z-index: 4; max-width: auto;">
+									<a class="btn btn-danger btn-lg" href="residential">Residential &nbsp; <i class="fa fa-angle-right"></i></a>
+							</div>
+
+						<!-- SLIDE  -->
+					    <li data-transition="parallaxtotop" data-slotamount="7" data-masterspeed="300"  data-saveperformance="off" data-title="Corporate Services">
+						<!-- MAIN IMAGE -->
+						<img src="<%= asset_path('AdobeStock_179073967.jpeg') %>" alt="cover image"  data-bgposition="center" data-bgfit="cover" data-bgrepeat="no-repeat">
+						
+						<div class="overlay dark-4"><!-- dark overlay [0 to 9 opacity] --></div>
+						
+						<div class="tp-caption font-roboto skewfromleft tp-resizeme"
+													data-x="130"
+													data-y="120" 
+													data-speed="500"
+													data-start="1500"
+														data-easing="Cubic.easeOut"
+														data-splitin="none"
+														data-splitout="none"
+														data-elementdelay="0.1"
+														data-endelementdelay="0.1"
+														data-endspeed="500"
+														style="z-index: 2; color:#fff; font-size:65px; line-height:85px; font-weight:bold; letter-spacing:0; text-shadow:none;">
+															Corporate building services <br />
+															
+													</div>
+						
+													<div class="tp-caption skewfromrightshort tp-resizeme"
+														data-x="200"
+														data-y="300" 
+														data-speed="500"
+														data-start="1000"
+														data-easing="easeInCirc"
+														data-splitin="none"
+														data-splitout="none"
+														data-elementdelay="0.1"
+														data-endelementdelay="0.1"
+														data-endspeed="500"
+														style="z-index: 3; font-size:20px; color:#fff; font-weight:300; text-shadow:none;">
+															Improve the mood of your company staff with our selection of high tech elevators! <br>
+															A new meeting place, faster movement around the office, an enjoyable experience!
+													</div>
+						
+													<div class="tp-caption sfb tp-resizeme"
+														data-x="505"
+														data-y="410" 
+														data-speed="500"
+														data-start="1500"
+														data-easing="Power3.easeIn"
+														data-splitin="none"
+														data-splitout="none"
+														data-elementdelay="1"
+														data-endelementdelay="0.1"
+														data-endspeed="500"
+														style="z-index: 4; max-width: auto;">
+															<a class="btn btn-danger btn-lg" href="commercial">Corporate &nbsp; <i class="fa fa-angle-right"></i></a>
+													</div>	
+						</li>
+
+					</ul>
+
+				</div>
+			</div>
+			<!-- /REVOLUTION SLIDER -->
+
+
+			<hr class="m-0" /><!-- 1px line separator -->
+
+
+			<!-- BUTTON CALLOUT -->
+			<a href="#contact" class="btn btn-xlg btn-primary fs-20 fullwidth m-0 rad-0 p-40">
+				<span class="font-lato fs-30">
+					<strong style="color: white;">Contact us &raquo;</strong>
+				</span>
+			</a>
+			<!-- /BUTTON CALLOUT -->
+
+
+			
+			<!-- Services -->
+			<section id="services">
+				<div class="container">
+
+					<div class="row">
+						<div class="col-sm-4">
+							<img class="img-fluid" src="<%= asset_path('Awards.jpeg') %>" alt="img" />
+							</a>
+
+							<h3 class="mt-10">Awards</h3>
+							<p>Rocket Elevators thrive for success has been rewarded numerous times. Over the years, we have accomplished many remarkable projets and have been given plenty of awards for our commitment to our clients!</p>
+							<a href="index#PORTFOLIO" class="btn btn-primary" style="color: white;">Take a look!</a>
+						</div>
+
+						<div class="col-sm-4">
+								<img class="img-fluid" src="<%= asset_path('residentialservice.jpeg') %>" alt="img" />
+							</a>
+							<h3 class="mt-10">Residential Services</h3>
+							<p>Tired of climbing the stairs in your house? Rocket Elevators has the solution! Our staff will take a look with you to facilitate your every move with our vast array of residential elevators. </p>
+							<a href="residential" class="btn btn-danger" style="color: white;">Residential</a>
+						</div>
+
+						<div class="col-sm-4">
+							<img class="img-fluid" src="<%= asset_path('corporateservices.jpeg') %>" alt="img" />
+							<h3 class="mt-10">Corporate Services</h3>
+							<p>Get the best out of your employees by making their trips inside your building an exciting experience. Our modern elevators for corporate building will be a fantastic asset to your compagny and the staff will be pleased!</p>
+							<a href="commercial" class="btn btn-primary" style="color: white;">Corporate</a>
+						</div>
+
+					</div>
+
+				</div>
+			</section>
+			<!-- /Services -->
+
+			
+
+
+			<!-- Parallax -->
+			<section class="parallax parallax-1" style="background-image: url('<%= asset_path('AdobeStock_53477661.jpeg') %>');">
+				<div class="overlay dark-5"><!-- dark overlay [1 to 9 opacity] --></div>
+
+				<div class="container">
+
+					<div class="text-center">
+						<h2 class="fs-40 fw-300">Rocket Elevators, In business since 1976! </h2>
+						<a class="btn btn-primary btn-lg" href="quote">REQUEST A QUOTE <i class="fa fa-angle-right"></i></a> 
+						&nbsp; OR &nbsp; 
+						<a class="btn btn-danger btn-lg" href="index#contact">CONTACT US <i class="fa fa-angle-right"></i></a>
+					</div>
+
+				</div>
+			</section>
+			<!-- /Parallax -->
+
+
+
+
+			<!-- PORTFOLIO -->
+			<section id="PORTFOLIO">
+				<div class="container">
+
+					<div class="heading-title heading-dotted text-center">
+						<h2>Portfolio</h2>
+					</div>
+
+					<div class="text-center">
+						<ul class="nav nav-pills mix-filter mb-60">
+							<li data-filter="all" class="filter active"><a href="#">All</a></li>
+							<li data-filter="residential" class="filter"><a href="#">Residential</a></li>
+							<li data-filter="corporate" class="filter"><a href="#">Corporate</a></li>
+							<li data-filter="awards" class="filter"><a href="#">Awards</a></li>
+						</ul>
+					</div>
+
+				</div>
+
+				<div id="portfolio" class="portfolio-nogutter">
+
+						<div class="row mix-grid">
+
+							<div class="col-md-3 col-sm-3 mix residential"><!-- item -->
+
+								<div class="item-box">
+									<figure>
+										<span class="item-hover">
+											<span class="overlay dark-5"></span>
+											<span class="inner">
+
+												<!-- lightbox -->
+												<a class="ico-rounded lightbox" href="<%= asset_path('Residentialelevator1.jpeg') %>" data-plugin-options='{"type":"image"}'>
+													<span class="fa fa-plus fs-20"></span>
+												</a>
+
+											</span>
+										</span>
+
+										<img class="img-fluid" src="<%= asset_path('Residentialelevator1.jpeg') %>" width="600" height="399" alt="">
+									</figure>
+
+									<div class="item-box-desc">
+										<h3>Rounded Modern Elevator</h3>
+										<ul class="list-inline categories m-0">
+											<li>United States</li>
+											<li>Ohio</li>
+										</ul>
+									</div>
+
+								</div>
+
+							</div><!-- /item -->
+
+
+							<div class="col-md-3 col-sm-3 mix residential"><!-- item -->
+
+								<div class="item-box">
+									<figure>
+										<span class="item-hover">
+											<span class="overlay dark-5"></span>
+											<span class="inner">
+
+												<!-- lightbox -->
+												<a class="ico-rounded lightbox" href="<%= asset_path('residentialelevator2.jpeg') %>" data-plugin-options='{"type":"image"}'>
+													<span class="fa fa-plus fs-20"></span>
+												</a>
+
+											</span>
+										</span>
+
+										<img class="img-fluid" src="<%= asset_path('residentialelevator2.jpeg') %>" width="600" height="399" alt="">
+									</figure>
+
+									<div class="item-box-desc">
+										<h3>Glass Modern Elevator</h3>
+										<ul class="list-inline categories m-0">
+											<li>United Kingdom</li>
+											<li>London</li>
+										</ul>
+									</div>
+
+								</div>
+
+							</div><!-- /item -->
+
+
+							<div class="col-md-3 col-sm-3 mix corporate"><!-- item -->
+
+								<div class="item-box">
+									<figure>
+										<span class="item-hover">
+											<span class="overlay dark-5"></span>
+											<span class="inner">
+
+												<!-- lightbox -->
+												<a class="ico-rounded lightbox" href="<%= asset_path('corporateelevator1.jpg') %>" data-plugin-options='{"type":"image"}'>
+													<span class="fa fa-plus fs-20"></span>
+												</a>
+
+											</span>
+										</span>
+
+										<img class="img-fluid" src="<%= asset_path('corporateelevator1.jpg') %>" width="600" height="399" alt="">
+									</figure>
+
+									<div class="item-box-desc">
+										<h3>Classic Luxurious Elevator</h3>
+										<ul class="list-inline categories m-0">
+											<li>Izmir</li>
+											<li>Turkey</li>
+										</ul>
+									</div>
+
+								</div>
+
+							</div><!-- /item -->
+
+
+							<div class="col-md-3 col-sm-3 mix corporate"><!-- item -->
+
+								<div class="item-box">
+									<figure>
+										<span class="item-hover">
+											<span class="overlay dark-5"></span>
+											<span class="inner">
+
+												<!-- lightbox -->
+												<a class="ico-rounded lightbox" href="<%= asset_path('corporateelevator2.jpg') %>" data-plugin-options='{"type":"image"}'>
+													<span class="fa fa-plus fs-20"></span>
+												</a>
+
+											</span>
+										</span>
+
+										<img class="img-fluid" src="<%= asset_path('corporateelevator2.jpg') %>" width="600" height="399" alt="">
+									</figure>
+
+									<div class="item-box-desc">
+										<h3>Classic Elevator</h3>
+										<ul class="list-inline categories m-0">
+											<li>United States</li>
+											<li>Dallas</li>
+										</ul>
+									</div>
+
+								</div>
+
+							</div><!-- /item -->
+
+
+							<div class="col-md-3 col-sm-3 mix corporate"><!-- item -->
+
+								<div class="item-box">
+									<figure>
+										<span class="item-hover">
+											<span class="overlay dark-5"></span>
+											<span class="inner">
+
+												<!-- lightbox -->
+												<a class="ico-rounded lightbox" href="<%= asset_path('corporateelevator3.png') %>" data-plugin-options='{"type":"image"}'>
+													<span class="fa fa-plus fs-20"></span>
+												</a>
+
+											</span>
+										</span>
+
+										<img class="img-fluid" src="<%= asset_path('corporateelevator3.png') %>" width="600" height="399" alt="">
+									</figure>
+
+									<div class="item-box-desc">
+										<h3>Caged Style Elevator</h3>
+										<ul class="list-inline categories m-0">
+											<li>Italy</li>
+											<li>Rome</li>
+										</ul>
+									</div>
+
+								</div>
+
+							</div><!-- /item -->
+
+
+							<div class="col-md-3 col-sm-3 mix corporate"><!-- item -->
+
+								<div class="item-box">
+									<figure>
+										<span class="item-hover">
+											<span class="overlay dark-5"></span>
+											<span class="inner">
+
+												<!-- lightbox -->
+												<a class="ico-rounded lightbox" href="<%= asset_path('corporateelevator4.jpg') %>" data-plugin-options='{"type":"image"}'>
+													<span class="fa fa-plus fs-20"></span>
+												</a>
+
+											</span>
+										</span>
+
+										<img class="img-fluid" src="<%= asset_path('corporateelevator4.jpg') %>" width="600" height="399" alt="">
+									</figure>
+
+									<div class="item-box-desc">
+										<h3>Rounded Modern Elevator</h3>
+										<ul class="list-inline categories m-0">
+											<li>China</li>
+											<li>Wuhan</li>
+										</ul>
+									</div>
+
+								</div>
+
+							</div><!-- /item -->
+
+							<div class="col-md-3 col-sm-3 mix corporate"><!-- item -->
+
+								<div class="item-box">
+									<figure>
+										<span class="item-hover">
+											<span class="overlay dark-5"></span>
+											<span class="inner">
+
+												<!-- lightbox -->
+												<a class="ico-rounded lightbox" href="<%= asset_path('corporateelevator5.jpg') %>" data-plugin-options='{"type":"image"}'>
+													<span class="fa fa-plus fs-20"></span>
+												</a>
+
+											</span>
+										</span>
+
+										<img class="img-fluid" src="<%= asset_path('corporateelevator5.jpg') %>" width="600" height="399" alt="">
+									</figure>
+
+									<div class="item-box-desc">
+										<h3>Futuristic Glass Elevator</h3>
+										<ul class="list-inline categories m-0">
+											<li>France</li>
+											<li>Paris</li>
+										</ul>
+									</div>
+
+								</div>
+
+							</div><!-- /item -->
+
+							<div class="col-md-3 col-sm-3 mix corporate"><!-- item -->
+
+								<div class="item-box">
+									<figure>
+										<span class="item-hover">
+											<span class="overlay dark-5"></span>
+											<span class="inner">
+
+												<!-- lightbox -->
+												<a class="ico-rounded lightbox" href="<%= asset_path('corporateelevator6.jpg') %>" data-plugin-options='{"type":"image"}'>
+													<span class="fa fa-plus fs-20"></span>
+												</a>
+
+											</span>
+										</span>
+
+										<img class="img-fluid" src="<%= asset_path('corporateelevator6.jpg') %>" width="600" height="399" alt="">
+									</figure>
+
+									<div class="item-box-desc">
+										<h3>Round Pod Elevator</h3>
+										<ul class="list-inline categories m-0">
+											<li>United States</li>
+											<li>Houston</li>
+										</ul>
+									</div>
+
+								</div>
+
+							</div><!-- /item -->
+
+							<div class="col-md-3 col-sm-3 mix corporate"><!-- item -->
+
+								<div class="item-box">
+									<figure>
+										<span class="item-hover">
+											<span class="overlay dark-5"></span>
+											<span class="inner">
+
+												<!-- lightbox -->
+												<a class="ico-rounded lightbox" href="<%= asset_path('corporateelevator7.jpg') %>" data-plugin-options='{"type":"image"}'>
+													<span class="fa fa-plus fs-20"></span>
+												</a>
+
+											</span>
+										</span>
+
+										<img class="img-fluid" src="<%= asset_path('corporateelevator7.jpg') %>" width="600" height="399" alt="">
+									</figure>
+
+									<div class="item-box-desc">
+										<h3>Old Fashioned Elevator</h3>
+										<ul class="list-inline categories m-0">
+											<li>Russia</li>
+											<li>Saint Petersburg</li>
+										</ul>
+									</div>
+
+								</div>
+
+							</div><!-- /item -->
+
+							<div class="col-md-3 col-sm-3 mix awards"><!-- item -->
+
+								<div class="item-box">
+									<figure>
+										<span class="item-hover">
+											<span class="overlay dark-5"></span>
+											<span class="inner">
+
+												<!-- lightbox -->
+												<a class="ico-rounded lightbox" href="<%= asset_path('awards1.jpg') %>" data-plugin-options='{"type":"image"}'>
+													<span class="fa fa-plus fs-20"></span>
+												</a>
+
+											</span>
+										</span>
+
+										<img class="img-fluid" src="<%= asset_path('awards1.jpg') %>" width="600" height="399" alt="">
+									</figure>
+
+									<div class="item-box-desc">
+										<h3>Most Successful Compagny</h3>
+										<ul class="list-inline categories m-0">
+											<li>China</li>
+											<li>2010</li>
+										</ul>
+									</div>
+
+								</div>
+
+							</div><!-- /item -->
+
+							<div class="col-md-3 col-sm-3 mix awards"><!-- item -->
+
+								<div class="item-box">
+									<figure>
+										<span class="item-hover">
+											<span class="overlay dark-5"></span>
+											<span class="inner">
+
+												<!-- lightbox -->
+												<a class="ico-rounded lightbox" href="<%= asset_path('awards2.jpg') %>" data-plugin-options='{"type":"image"}'>
+													<span class="fa fa-plus fs-20"></span>
+												</a>
+
+											</span>
+										</span>
+
+										<img class="img-fluid" src="<%= asset_path('awards2.jpg') %>" width="600" height="399" alt="">
+									</figure>
+
+									<div class="item-box-desc">
+										<h3>Best Elevator Design</h3>
+										<ul class="list-inline categories m-0">
+											<li>Italy</li>
+											<li>2015</li>
+										</ul>
+									</div>
+
+								</div>
+
+							</div><!-- /item -->
+
+
+							<div class="col-md-3 col-sm-3 mix awards"><!-- item -->
+
+								<div class="item-box">
+									<figure>
+										<span class="item-hover">
+											<span class="overlay dark-5"></span>
+											<span class="inner">
+
+												<!-- lightbox -->
+												<a class="ico-rounded lightbox" href="<%= asset_path('awards3.jpg') %>" data-plugin-options='{"type":"image"}'>
+													<span class="fa fa-plus fs-20"></span>
+												</a>
+
+											</span>
+										</span>
+
+										<img class="img-fluid" src="<%= asset_path('awards3.jpg') %>" width="600" height="399" alt="">
+									</figure>
+
+									<div class="item-box-desc">
+										<h3>Marketer of the year</h3>
+										<ul class="list-inline categories m-0">
+											<li>United States</li>
+											<li>2018</li>
+										</ul>
+									</div>
+
+								</div>
+
+							</div><!-- /item -->
+
+
+						</div>
+
+
+				</div>
+			</section>
+			<!-- /PORTFOLIO -->
+
+
+
+
+			<!-- Team -->
+			<section  id="team"   class="section-xs dark">
+				<div class="container">
+
+					<div class="owl-carousel text-center owl-testimonial m-0" data-plugin-options='{"singleItem": true, "autoPlay": 3500, "navigation": false, "pagination": true, "transitionStyle":"fade"}'>
+						<div class="testimonial">
+							<figure>
+								<img id="CEO" class="rounded" src="<%= asset_path('CEO.jpg.png') %>" alt="" />
+							</figure>
+							<div class="testimonial-content p-0">
+								<p class="lead">The satisfaction of our clients is our highest priority here at Rocket Elevators. </p>
+								<cite>
+									Thomas Carrier
+									<span>CEO of Rocket Elevators</span>
+								</cite>
+							</div>
+						</div>
+						<div class="testimonial">
+							<figure>
+								<img  id="employee-of-the-month"   class="rounded" src="<%= asset_path('employee-of-the-month.jpg') %>" alt="" />
+							</figure>
+							<div class="testimonial-content p-0">
+								<p class="lead">Our success lies in the efficiency and perseverance of our working teams.</p>
+								<cite>
+									Alex Bergeron
+									<span>Employee of the month</span>
+								</cite>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</section>
+			<!-- /Team -->
+
+
+
+
+
+			<!-- News -->
+			<section id="news">
+				<div class="container">
+
+					<div class="heading-title heading-dotted text-center">
+						<h2>Recent News</h2>
+					</div>
+
+					<!-- 
+						controlls-over		= navigation buttons over the image 
+						buttons-autohide 	= navigation buttons visible on mouse hover only
+						
+						data-plugin-options:
+							"singleItem": true
+							"autoPlay": true (or ms. eg: 4000)
+							"navigation": true
+							"pagination": true
+							"items": "4"
+
+						owl-carousel item paddings
+							.owl-padding-0
+							.owl-padding-3
+							.owl-padding-6
+							.owl-padding-10
+							.owl-padding-15
+							.owl-padding-20
+					-->
+					<div class="owl-carousel owl-padding-10 buttons-autohide controlls-over" data-plugin-options='{"singleItem": false, "items":"4", "autoPlay": 4000, "navigation": true, "pagination": false}'>
+						<div class="img-hover">
+							<a href="https://globalnews.ca/news/7688766/halifax-wheelchair-user-trapped-elevator-repair/" target="_blank">
+							<img class="img-fluid" src="<%= asset_path('Adam-Denney-elevator-2-e1615413389979.webp') %>" alt="">
+							</a>
+
+							<h4 class="text-left mt-20">Man in wheelchair trapped in appartement</h4>
+							<p class="text-left">A 30-year-old man from Halifax who lives on third floor has been stuck in his appartement for 15 days due to an out-of-order elevator. </p>
+							<ul class="text-left fs-12 list-inline list-separator">
+								<li>
+									<i class="fa fa-calendar"></i> 
+									11th March 2021
+								</li>
+								</li>
+							</ul>
+						</div>
+						<div class="img-hover">
+							<a href="https://metro.co.uk/2021/05/01/russia-boy-12-falls-40ft-after-trying-to-ride-escalator-rail-14505886/" target="_blank">	
+							<img class="img-fluid" src="<%= asset_path('Elevator fall.jpg') %>" alt="">
+							</a>
+
+							<h4 class="text-left mt-20">40-ft fall from escalator</h4>
+							<p class="text-left">A 12-year-old boy trying to "stop" the elevator from going up by jumping broke his leg when the floor collapsed due to a weak floor. This event happened in a shopping center in Russia. He was reportedly recovering after being taken to a nearby hospital.</p>
+							<ul class="text-left fs-12 list-inline list-separator">
+								<li>
+									<i class="fa fa-calendar"></i> 
+									5th May 2021
+								</li>
+
+								</li>
+							</ul>
+						</div>
+						<div class="img-hover">
+							<a href="https://www.hsph.harvard.edu/news/hsph-in-the-news/how-to-behave-in-an-elevator-during-covid-19-pandemic/" target="_blank">	
+							<img class="img-fluid" src="<%= asset_path('Covid Elevators.jpg') %>" alt="">
+							</a>
+
+							<h4 class="text-left mt-20">Elevator and Covid-19</h4>
+							<p class="text-left">New restrictions have been implemented in public elevators to protect its users from the pandemic. A maximum of 4 person can be inside at the same time and must stand on each corner facing away from each other.</p>
+							<ul class="text-left fs-12 list-inline list-separator">
+								<li>
+									<i class="fa fa-calendar"></i> 
+									10th August 2020
+								</li>
+								</li>
+							</ul>
+						</div>
+						<div class="img-hover">
+							<a href="https://elevatorworld.com/news/" target="_blank">
+								<img class="img-fluid" src="<%= asset_path('AdobeStock_73868131.jpeg') %>" alt="">
+							</a>
+
+							<h4 class="text-left mt-20">Don't do it!</h4>
+							<p class="text-left">A man working in a 29 story building got fired from his job due to his malicious habit of pressing all the floor's button before exiting the elevators. His coworkers from the last floors in the building filed multiple complaints against him over the years since they would arrive late stopping at every floor when there was no one to pick up.</p>
+							<ul class="text-left fs-12 list-inline list-separator">
+								<li>
+									<i class="fa fa-calendar"></i> 
+									29th January 2021
+								</li>
+								</li>
+							</ul>
+						</div>
+						<div class="img-hover">
+							<a href="https://www.dogboardingandtrainingmiami.com/how-to-train-your-dog-to-behave-in-the-elevator-miami-dog-and-puppy-training/" target="_blank">
+								<img class="img-fluid" src="<%= asset_path('dogelevator.jpeg') %>" alt="">
+							</a>
+							<h4 class="text-left mt-20">Dog and Elevators</h4>
+							<p class="text-left">Most humans have a universal fear of being trapped in a crowded elevator with a bunch of strangers. So why does it surprise us that some dogs share the same anxiety while riding from our apartment to the ground floor during a routine walk? Don’t hesitate using the good stuff like chicken, hotdog or cheese!</p>
+							<ul class="text-left fs-12 list-inline list-separator">
+								<li>
+									<i class="fa fa-calendar"></i> 
+									15th May 2021
+								</li>
+								</li>
+							</ul>
+						</div>
+						<div class="img-hover">
+							<a href="https://www.news4jax.com/community/2014/06/11/chilean-man-recovering-from-out-of-control-elevator-ride/" target="_blank">
+								<img class="img-fluid" src="<%= asset_path('IVFN3KH3HVBZBHADOR7MOZWZVM.jpeg') %>" alt="">
+							</a>
+							<h4 class="text-left mt-20">Hell of a ride</h4>
+							<p class="text-left">A Chilean man was seriously injured in a freak accident recently when the elevator he was riding malfunctioned, rising 31 floors in just 15 seconds and crashing into the roof.Surveillance video shows Jose Vergara Acevedo, 31, entering the elevator of a recently-constructed building in Providencia.</p>
+							<ul class="text-left fs-12 list-inline list-separator">
+								<li>
+									<i class="fa fa-calendar"></i> 
+									18th October 2020
+								</li>
+								</li>
+							</ul>
+						</div>
+
+					</div>
+
+				</div>
+			</section>
+			<!-- /News -->
+			<!-- Clients -->
+			<section id="clients" class="alternate">
+				<div class="container">
+
+					<div class="heading-title heading-dotted text-center">
+						<h2>Our Clients</h2>
+					</div>
+
+					<ul class="row clients-dotted list-inline">
+						<li class="col-md-3 col-sm-3 col-6">
+								<img class="img-fluid" src="<%= asset_path('Biomic tr.png') %>" alt="client" />	
+						</li>
+						<li class="col-md-3 col-sm-3 col-6">
+							
+								<img class="img-fluid" src="<%= asset_path('Catic tr.png') %>" alt="client" />
+						</li>
+						<li class="col-md-3 col-sm-3 col-6">
+						
+								<img class="img-fluid" src="<%= asset_path('digitrix tr.png') %>" alt="client" />
+						</li>
+						<li class="col-md-3 col-sm-3 col-6">
+						
+								<img class="img-fluid" src="<%= asset_path('innover.png') %>" alt="client" />
+						</li>
+						<li class="col-md-3 col-sm-3 col-6">
+						
+								<img class="img-fluid" src="<%= asset_path('Multism tr.png') %>" alt="client" />
+						</li>
+						<li class="col-md-3 col-sm-3 col-6">
+								<img class="img-fluid" src="<%= asset_path('optice.png') %>" alt="client" />
+						</li>
+						<li class="col-md-3 col-sm-3 col-6">
+								<img class="img-fluid" src="<%= asset_path('Robotion.png') %>" alt="client" />
+						</li> 
+					<li class="col-md-3 col-sm-3 col-6">
+								<img class="img-fluid" src="<%= asset_path('silicine tr.png') %>" alt="client" />
+							</li>
+							<li class="col-md-3 col-sm-3 col-6">
+									<img class="img-fluid" src="<%= asset_path('techly tr.png') %>" alt="client" />
+							</li>
+							<li class="col-md-3 col-sm-3 col-6">
+									<img class="img-fluid" src="<%= asset_path('techside tr.png') %>" alt="client" />
+							</li>
+							<li class="col-md-3 col-sm-3 col-6">
+									<img class="img-fluid" src="<%= asset_path('teckpack tr.png') %>" alt="client" />
+							</li>
+							<li class="col-md-3 col-sm-3 col-6">
+									<img class="img-fluid" src="<%= asset_path('webubble tr.png') %>" alt="client" />
+						</li>
+					</ul>
+
+				</div>
+			</section>
+			<!-- /Clients -->
+
+
+
+
+			<!-- CONTACT -->
+			<section id="contact">
+				<div class="container">
+
+					<header class="text-center mb-60">
+						<h2>Contact Us</h2>
+						<p class="lead font-lato">Rocket Elevators is there for you</p>
+						<hr />
+					</header>
+
+
+					<div class="row">
+
+						<!-- FORM -->
+						<div class="col-md-8 col-sm-8">
+
+							<h3>Submit your project to us or ask us how we can help! <strong><em></em></strong></h3>
+
+							
+							<!--
+								MESSAGES
+								
+									How it works?
+									The form data is posted to php/contact.php where the fields are verified!
+									php.contact.php will redirect back here and will add a hash to the end of the URL:
+										#alert_success 		= email sent
+										#alert_failed		= email not sent - internal server error (404 error or SMTP problem)
+										#alert_mandatory	= email not sent - required fields empty
+										Hashes are handled by assets/js/contact.js
+
+									Form data: required to be an array. Example:
+										contact[email][required]  WHERE: [email] = field name, [required] = only if this field is required (PHP will check this)
+										Also, add `required` to input fields if is a mandatory field. 
+										Example: <input required type="email" value="" class="form-control" name="contact[email][required]">
+
+									PLEASE NOTE: IF YOU WANT TO ADD OR REMOVE FIELDS (EXCEPT CAPTCHA), JUST EDIT THE HTML CODE, NO NEED TO EDIT php/contact.php or javascript
+												 ALL FIELDS ARE DETECTED DINAMICALY BY THE PHP
+
+									WARNING! Do not change the `email` and `name`!
+												contact[name][required] 	- should stay as it is because PHP is using it for AddReplyTo (phpmailer)
+												contact[email][required] 	- should stay as it is because PHP is using it for AddReplyTo (phpmailer)
+							-->
+
+							<!-- Alert Success -->
+							<div id="alert_success" class="alert alert-success mb-30">
+								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+								<strong>Thank You!</strong> Your message successfully sent!
+							</div><!-- /Alert Success -->
+
+
+							<!-- Alert Failed -->
+							<div id="alert_failed" class="alert alert-danger mb-30">
+								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+								<strong>[SMTP] Error!</strong> Internal server error!
+							</div><!-- /Alert Failed -->
+
+
+							<!-- Alert Mandatory -->
+							<div id="alert_mandatory" class="alert alert-danger mb-30">
+								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+								<strong>Sorry!</strong> You need to complete all mandatory (*) fields!
+							</div><!-- /Alert Mandatory -->
+
+
+							<%= form_for Lead.new do |f| %>
+								<input type="hidden" name="action" value="contact_send"/>
+								
+								<fieldset>
+								
+									<div class="row">
+											<div class="col-md-4">
+												<%= f.label :full_name, "Full Name *" %>
+    											<%= f.text_field :full_name %>
+											</div>
+											<div class="col-md-4">
+												<%= f.label :email, "E-mail Address *" %>
+    											<%= f.email_field :email %>
+											</div>
+											<div class="col-md-4">
+												<%= f.label :phone_number, "Phone Number *" %>
+    											<%= f.phone_field :phone_number %>
+											</div>
+
+
+									</div>
+									<div class="row">
+											<div class="col-md-4">
+												<%= f.label :company_name, "Company name" %>
+    											<%= f.text_field :company_name %>
+											</div>
+									    	<div class="col-md-4">
+												<%= f.label :project_name, "Project Name" %>
+    											<%= f.text_field :project_name %>
+
+											</div>
+											<div class="col-md-4">
+												<%= f.label :project_description, "Project Description" %>
+    											<%= f.text_field :project_description %>
+											</div>
+									</div>
+									<div class="row">
+										<div class="col-md-4">
+
+											<%= f.label :departement, "Departement" %>
+										    <%= f.select :departement, [["--- Select ---", ""], "Residential", "Commercial", "Corporate", "Hybrid"] %>
+
+										</div>
+										<div class="col-md-8">
+											<div>
+												<%= f.label :message, "Message *" %>
+												<%= f.text_field :message %>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+											<div class="col-md-12">
+
+												<!-- custom file upload -->
+												<%= f.label :file %>
+												<%= f.file_field :file %>
+												<small class="text-muted block">Max file size: 10Mb (zip/pdf/jpg/png)</small>
+												
+											</div>
+									</div>
+
+								</fieldset>
+
+								<div class="row">
+									<div class="col-md-12">
+										<button type="submit" class="btn btn-primary" onclick="myAlert()"><i class="fa fa-check"></i> SEND MESSAGE</button>
+									
+									</div>
+								</div>
+							<% end %>
+							<%# </form> %>
+
+						</div>
+						<!-- /FORM -->
+
+
+						<!-- INFO -->
+						<div class="col-md-4 col-sm-4">
+
+							<h2>Visit Us</h2>
+
+							<!-- 
+							Available heights
+								h-100
+								h-150
+								h-200
+								h-250
+								h-300
+								h-350
+								h-400
+								h-450
+								h-500
+								h-550
+								h-600
+							-->
+							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2729.0431801755158!2d-71.28188348400246!3d46.84283987914135!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cb897dddd400001%3A0x50b272e78f00b352!2s418-725%20Boulevard%20Lebourgneuf%2C%20Qu%C3%A9bec%2C%20QC%20G2J%200C4!5e0!3m2!1sen!2sca!4v1620440526550!5m2!1sen!2sca" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+							<hr />
+
+							<p>
+								<span class="block"><strong><i class="fa fa-map-marker"></i> Address:</strong> 418-725 Boulevard Lebourgeuf, Québec, QC G2J 0C4</span>
+								<span class="block"><strong><i class="fa fa-phone"></i> Phone:</strong> <a href="tel:1581-701-0303">(418) 555-1234</a></span>
+								<span class="block"><strong><i class="fa fa-envelope"></i> Email:</strong> <a href="mailto:info@codeboxx.biz">info@codeboxx.biz</a></span>
+							</p>
+
+						</div>
+						<!-- /INFO -->
+
+					</div>
+
+				</div>
+			</section>
+			<!-- /CONTACT -->
+
+
+
+
+			<!-- FOOTER -->
+			<footer id="footer">
+				<div class="container">
+
+
+					<div class="row">
+
+						<!-- col #1 -->
+						<div class="col-md-8">
+
+							<h3 class="letter-spacing-1">WHY US?</h3>
+
+							<!-- Small Description -->
+							<p>
+							We have the conviction that we create the most innovative and reliable products on the market. Contact us today for any questions you might have.
+
+							</p>
+							<h2>(418) 555-1234</h2>
+						</div>
+						<!-- /col #1 -->
+
+						
+					</div>
+
+
+				</div>
+
+				<div class="copyright">
+					<div class="container">
+						<ul class="float-right m-0 list-inline mobile-block">
+							<li>Terms &amp; Conditions</li>
+							<li>&bull;</li>
+							<li>Privacy</li>
+						</ul>
+						&copy; All Rights Reserved, Rocket Elevators
+					</div>
+				</div>
+
+			</footer>
+			<!-- /FOOTER -->
+
+		</div>
+		<!-- /wrapper -->
+
+
+		<!-- SCROLL TO TOP -->
+		<a href="#home" id="toTop"></a>
+
+
+		<%# <!-- PRELOADER -->
+		<div id="preloader">
+			<div class="inner">
+				<span class="loader"></span>
+			</div>
+		</div><!-- /PRELOADER --> %>
+
+
+		<!-- JAVASCRIPT FILES -->
+		<script>var plugin_path = 'assets/plugins/';</script>
+		
+
+		<script>
+			function myAlert() {
+				alert("Message sent!");
+		}
+		</script>
+
+         
+		<!-- 
+			GMAP.JS 
+			http://hpneo.github.io/gmaps/
+		-->
+	</body>
+</html>

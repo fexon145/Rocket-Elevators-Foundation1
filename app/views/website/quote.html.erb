@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="icon" type="image/png" href="<%= asset_path('faviconlogo.png') %>" />
+		<meta charset="utf-8" />
+		<title>Quote Page-Rocket Elevators</title>
+		<meta name="description" content="" />
+		<meta name="Author" content="Dorin Grigoras [www.stepofweb.com]" />
+
+		<!-- mobile settings -->
+		<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+		<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+
+		<!-- WEB FONTS : use %7C instead of | (pipe) -->
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700" rel="stylesheet" type="text/css" />
+
+	</head>
+
+	<!--
+		AVAILABLE BODY CLASSES:
+		
+		smoothscroll 			= create a browser smooth scroll
+		enable-animation		= enable WOW animations
+
+		bg-grey					= grey background
+		grain-grey				= grey grain background
+		grain-blue				= blue grain background
+		grain-green				= green grain background
+		grain-blue				= blue grain background
+		grain-orange			= orange grain background
+		grain-yellow			= yellow grain background
+		
+		boxed 					= boxed layout
+		pattern1 ... patern11	= pattern background
+		menu-vertical-hide		= hidden, open on click
+		
+		BACKGROUND IMAGE [together with .boxed class]
+	
+	-->
+	<body>
+
+		<!-- wrapper -->
+		<div id="wrapper">
+
+			<!-- 
+				AVAILABLE HEADER CLASSES
+
+				Default nav height: 96px
+				.header-md 		= 70px nav height
+				.header-sm 		= 60px nav height
+
+				.b-0 		= remove bottom border (only with transparent use)
+				.transparent	= transparent header
+				.translucent	= translucent header
+				.sticky			= sticky header
+				.static			= static header
+				.dark			= dark header
+				.bottom			= header on bottom
+				
+				shadow-before-1 = shadow 1 header top
+				shadow-after-1 	= shadow 1 header bottom
+				shadow-before-2 = shadow 2 header top
+				shadow-after-2 	= shadow 2 header bottom
+				shadow-before-3 = shadow 3 header top
+				shadow-after-3 	= shadow 3 header bottom
+
+				.clearfix		= required for mobile menu, do not remove!
+
+				Example Usage:  class="clearfix sticky header-sm transparent b-0"
+			-->
+			<div id="header" class="navbar-toggleable-md sticky clearfix">
+
+				<!-- TOP NAV -->
+				<header id="topNav">
+					<div class="container">
+
+						<!-- Mobile Menu Button -->
+						<button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
+							<i class="fa fa-bars"></i>
+						</button>
+
+						<!-- Logo -->
+						<a class="logo float-left scrollTo" href="#top" style="background-color: #FFFFFF">
+							<img src="<%= asset_path('R2.png') %>" alt="" />
+						</a>
+
+						<!-- 
+							Top Nav 
+							
+							AVAILABLE CLASSES:
+							submenu-dark = dark sub menu
+						-->
+						<div class="navbar-collapse collapse float-right nav-main-collapse submenu-dark">
+							<nav class="nav-main">
+
+								<!-- 
+									.nav-onepage
+									Required for onepage navigation links
+									
+									Add .external for an external link!
+								-->
+								<ul id="topMain" class="nav nav-pills nav-main nav-onepage">
+									<li class="active"><!-- HOME -->
+										<a id="home-nav" href="index">
+											HOME
+										</a>
+									</li>
+									<li><!-- SERVICES -->
+										<li class="dropdown">
+										<a class="dropdown-toggle" id="services-nav" href="index#services">
+										  SERVICES
+											</a>
+										<ul class="dropdown-menu">
+										  <li><a href="residential">Residential</a></li>
+										  <li><a href="commercial">Commercial</a></li>
+										</ul>
+									</li>
+									</li>
+									<li><!-- PORTFOLIO -->
+										<a id="portfolio-nav" href="index#PORTFOLIO">
+											PORTFOLIO
+										</a>
+									</li>
+									<li><!-- NEWS -->
+										<a id="news-nav" href="index#news">
+											NEWS
+										</a>
+									</li>
+
+									<li><!-- CLIENTS -->
+										<a id="clients-nav" href="index#clients">
+											CLIENTS
+										</a>
+									</li>
+
+									<li><!-- CONTACT -->
+										<a id="contact-nav" href="index#contact">
+											CONTACT
+										</a>
+									</li>
+									<li><!-- USERS login -->
+										<a id="login-nav" href="/admin">
+											SIGN IN
+										</a>
+									</li>
+								</ul>
+
+							</nav>
+						</div>
+
+					</div>
+				</header>
+				<!-- /Top Nav -->
+
+			</div>
+
+
+			<!-- 
+				PAGE HEADER 
+				
+				CLASSES:
+					.page-header-xs	= 20px margins
+					.page-header-md	= 50px margins
+					.page-header-lg	= 80px margins
+					.page-header-xlg= 130px margins
+					.dark			= dark page header
+
+					.shadow-before-1 	= shadow 1 header top
+					.shadow-after-1 	= shadow 1 header bottom
+					.shadow-before-2 	= shadow 2 header top
+					.shadow-after-2 	= shadow 2 header bottom
+					.shadow-before-3 	= shadow 3 header top
+					.shadow-after-3 	= shadow 3 header bottom
+			-->
+			<!-- /PAGE HEADER -->
+
+			<!-- Form Section -->
+			<section>									<div class="row">
+				<div class="col-md-4">
+				</div>
+				<div class="col-md-4">
+					<label class="title text-center"><h1>Rocket Elevators Quote Form</h1></label>
+				</div>
+				<div class="col-md-4">
+				</div> </section>
+		<form class="text-center" method="post" action="/quotes">
+			<section>                                   <div class="row">
+				<div class="col-md-5">
+				</div>
+				<div class="col-md-2">
+					<h2 class="text-center">Choose your building type: </h2>
+					<label id="building-type"></label>
+											<select name="quotes[name]" id="buildingType" class="form-control pointer" onchange="ValReset() , Hidecalc()">
+												<option value="">--- Select ---</option>
+												<option id="residential" value="residential">Residential</option>
+												<option id="commercial" value="commercial">Commercial</option>
+												<option id="corporate" value="corporate">Corporate</option>
+												<option id="hybrid" value="hybrid">Hybrid</option>												
+											</select>
+											<br>
+											<br>
+											<text class="text-center">Then answer the questions right here</text>
+											<h3 class="text-center">----></h3>
+											<br>
+											<br>
+											<div id="number-of-lift-cages" class="text-center">
+												<label>Recommended number of lift cages:</label>
+												<input name="quotes[number_of_elevators]" id="cages" min="0" readonly onchange="CageCalc()">
+											</div>
+				</div>
+				<div class="col-md-5 text-center">
+					<div id="number-of-apartments" class="text-center">
+						<label>Number of apartments in the building?</label>
+						<input name="quotes[number_of_appartement]" type="number" min="0" id="app" step="1" onchange="CageCalc()">
+					</div>
+					<div id="number-of-floors" class="text-center">
+						<label>Number of floors in the building, exluding basements?</label>
+						<input name="quotes[number_of_floor]" type="number" min="0" id="flo" step="1" onchange="CageCalc()">
+					</div>
+					<div id="number-of-basements" class="text-center">
+						<label>Number of Basements contained in the building?</label>
+						<input name="quotes[number_of_basement]" type="number" min="0" id="bas" step="1" onchange="CageCalc()">
+					</div>
+					<div id="number-of-companies" class="text-center">
+						<label>Number of distinct businesses?</label>
+						<input name="quotes[number_of_companies]" type="number" min="0" id="com" step="1" onchange="CageCalc()">
+					</div>
+					<div id="number-of-parking-spots" class="text-center">
+						<label>Number of parking space available?</label>
+						<input name="quotes[number_of_parking_spots]" type="number" min="0" id="par" step="1" onchange="CageCalc()">
+					</div>
+					<div id="number-of-elevators" class="text-center">
+						<label>Number of elevator cages to be deployed?</label>
+						<input type="number" min="0" id="ele" step="1" onchange="CageCalc()">
+					</div>
+					<div id="number-of-corporations" class="text-center">
+						<label>Number of separate tenant companies?</label>
+						<input name="quotes[number_of_corporations]" type="number" min="0" id="cor" step="1" onchange="CageCalc()">
+					</div>
+					<div id="maximum-occupancy" class="text-center">
+						<label>Maximum number of occupants per floor?</label>
+						<input name="quotes[maximum_occupancy]" type="number" min="0" id="moc" step="1" onchange="CageCalc()">
+					</div>
+					<div id="business-hours" class="text-center">
+						<label>Number of hours of activity in the building?</label>
+						<input name="quotes[business_hours]" type="number" min="0" id="bus" step="1" onchange="CageCalc()">
+					</div>
+				</div>
+			</section>
+			<section>                                  <div class="row">
+				<div class="col-md-5">
+				</div>
+				<div class="col-md-2">
+					<h2 class="text-center">Choose your product line:</h2>
+				<div class="text-center" id="radio" >
+					<input name="quotes[product_line]" value="Standard" type="radio" id="standard" onchange="CageCalc()">
+					<label for="standard">Standard</label><br>
+					<input name="quotes[product_line]" value="Premium" type="radio" id="premium" onchange="CageCalc()">
+					<label for="premium">Premium</label><br>
+					<input name="quotes[product_line]" value="Excelium" type="radio" id="excelium" onchange="CageCalc()">
+					<label for="excelium">Excelium</label>
+				</div>
+				</div>
+				<div class="col-md-5">
+				</div>	
+			
+			</section>
+			<section>
+				<div class="row">
+					<div class="col-md-5">
+					</div>
+					<div class="col-md-2 text-center">
+						<h2 class="text-center">Calculation of your selection</h2>
+						<div id="elevator-amount" input="elevator-amount" style="display: none;">
+							<label>Amount of elevators needed</label>
+							<input id="ElevatorAmount" class="text-center"  readonly>
+						</div>
+						<div id="elevator-unit-price" input="elevator-unit-price" style="display: none;">
+							<label>Unit price of each elevator</label>
+							<input name="quotes[unit_price_of_each_elevator]" id="unit-price" class="text-center" readonly>
+						</div>
+						<div id="elevator-total-price" input="elevator-total-price" style="display: none;">
+							<label>Total price of the elevators</label>
+							<input name="quotes[total_price_of_elevators]" id="total-price" class="text-center" readonly>
+						</div>
+						<div id="installation-fees" input="installation-fees" style="display: none;">
+							<label>Installation fees</label>
+							<input name="quotes[installation_fees]" class="text-center" id="Instal-Fees" readonly>
+						</div>
+						<div id="final-price" input="final-price" style="display: none;">
+							<label>Final Price</label>
+							<input name="quotes[final_price]" class="text-center" id="Final-Price" readonly>
+						</div>
+						<br>
+						<div id="company-name" input="company-name" style="display: none;">
+							<label>Please enter your Company Name</label>
+							<input name="quotes[company_name]" class="text-center" id="Company-Name">
+						</div>
+						<br>
+						<div id="email" input="email" style="display: none;">
+							<label>Please enter your Company Email</label>
+							<input name="quotes[email]" class="text-center" id="Email">
+						</div>
+						<br>
+						<div id="submitbutton" style="display: block;">
+							<button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> SUBMIT QUOTE</button>
+						</div>
+					</div>
+					<div class="col-md-5">
+					</div>	
+		</form>
+			</section>
+			
+
+			
+			<!-- / -->
+
+			<!-- FOOTER -->
+			<footer id="footer">
+				<div class="container">
+
+
+					<div class="row">
+
+						<!-- col #1 -->
+						<div class="col-md-8">
+
+							<h3 class="letter-spacing-1">WHY US?</h3>
+
+							<!-- Small Description -->
+							<p>
+							We have the conviction that we create the most innovative and reliable products on the market. Contact us today for any questions you might have.
+
+							</p>
+							<h2>(418) 555-1234</h2>
+						</div>
+						<!-- /col #1 -->
+
+						
+					</div>
+
+
+				</div>
+
+				<div class="copyright">
+					<div class="container">
+						<ul class="float-right m-0 list-inline mobile-block">
+							<li>Terms &amp; Conditions</li>
+							<li>&bull;</li>
+							<li>Privacy</li>
+						</ul>
+						&copy; All Rights Reserved, Rocket Elevators
+					</div>
+				</div>
+
+			</footer>
+			<!-- /FOOTER -->
+
+		<!-- SCROLL TO TOP -->
+		<a href="#" id="toTop"></a>
+
+
+
+		<!-- JAVASCRIPT FILES -->
+		<script>var plugin_path = 'assets/plugins/';</script>
+		<%= javascript_include_tag 'scriptsquote' %>
+
+		
+
+	</body>
+</html>

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  product_line: MyString
+  number_of_elevator: 
+  unit_price_of_each_elevator: 
+  total_price_of_elevators: 
+  installation_fees: 
+  final_price: 
+
+two:
+  name: MyString
+  product_line: MyString
+  number_of_elevator: 
+  unit_price_of_each_elevator: 
+  total_price_of_elevators: 
+  installation_fees: 
+  final_price: 
