@@ -16,11 +16,21 @@ Rails.application.routes.draw do
 
   get '/commercial', to: 'website#commercial'
 
+  get '/intervention', to: 'website#intervention'
+
   get '/quote', to: 'website#quote'
 
   get '/google', to: 'google#maps'
 
   post '/watson/greetings', to: 'watson#greetings'
 
+  get 'building_take/:customer_id', to: 'interventions#building_take'
+
+  get 'battery_take/:building_id', to: 'interventions#battery_take'
+
+  get 'column_take/:battery_id', to: 'interventions#column_take'
+
+  get 'elevator_take/:column_id', to: 'interventions#elevator_take'
+  
 end
 

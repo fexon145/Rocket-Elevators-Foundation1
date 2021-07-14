@@ -7,4 +7,6 @@ class WebsiteController < ApplicationController
   end
   def quote
   end
+  def intervention
+  end
 end

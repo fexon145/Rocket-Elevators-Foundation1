@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
+
+<head>
 		<link rel="icon" type="image/png" href="<%= asset_path('faviconlogo.png') %>" />
 		<meta charset="utf-8" />
 		<title>Rocket Elevators</title>
@@ -127,6 +128,11 @@
 											ADMIN
 										</a>
 									</li>
+									<li><!-- interventions -->
+										<a id="interventions-nav" href="/intervention">
+											INTERVENTIONS
+										</a>
+									</li>
 									<% end %>
 									<% if user_signed_in? %> 
                                     <li><!-- USERS logout -->
@@ -148,11 +154,70 @@
 				</header>
 				<!-- /Top Nav -->
 
-			</div>
-<h1>New Intervention</h1>
+            </div>
 
-<%= render 'form', intervention: @intervention %>
+<%= form_for :intervention, url: url_for(controller: 'interventions', action: 'create'),  :html => {id: "interventionSubmit", :class => "text-center"} do |form|%>
 
+
+ <div class="col-md-12 text-center">
+      <%= form.label :customer %>
+      <%= form.select :customer_id, Customer.all.collect {|p| [p.compagny_name, p.id]} %>
+  </div>
+    
+  <div class="col-md-12 text-center"> 
+    <%= form.label :building_id %>  
+    <%= form.select :building_id, Building.all.collect{|p| [p.id]} %>
+  </div>
+
+  <div class="col-md-12 text-center">
+    <%= form.label :battery_id %>
+    <%= form.select :battery_id, Battery.all.collect{|p| [p.id]} %>
+  </div>
+    <%# none %>
+  <div class="col-md-12 text-center">
+    <%= form.label :column_id %>
+    <%= form.select :column_id, Column.all.collect{|p| [p.id]} %>
+  </div>
+    <%# none %>
+  <div class="col-md-12 text-center">
+    <%= form.label :elevator_id %>
+    <%= form.select :elevator_id, Elevator.all.collect{|p| [p.id]} %>
+  </div>
+
+  <div class="col-md-12 text-center">
+    <%= form.label :employee_id %>
+    <%= form.select :employee_id, Employee.all.collect {|m| [m.first_name + " " + m.last_name, m.id]}, :include_blank => "None" %>
+  </div>
+
+  <div class="col-md-12 text-center">
+    <%= form.label :startdate %>
+    <%= form.datetime_select :startdate %>
+  </div>
+
+  <div class="col-md-12 text-center">
+    <%= form.label :enddate %>
+    <%= form.text_field :enddate %>
+  </div>
+
+  <div class="col-md-12 text-center">
+    <%= form.label :result %>
+    <%= form.text_field :result %>
+  </div>
+    <%# none %>
+  <div class="col-md-12 text-center">
+    <%= form.label :report %>
+    <%= form.text_area :report, rows: "15", cols: "60" %>
+  </div>
+
+  <div class="col-md-12 text-center">
+    <%= form.label :status %>
+    <%= form.text_field :status %>
+  </div>
+
+  <div class="col-md-12 text-center">
+    <%= form.submit %>
+  </div>
+<% end %>
 
 			<!-- FOOTER -->
 			<footer id="footer">
@@ -195,36 +260,17 @@
 			</footer>
 			<!-- /FOOTER -->
 
-		</div>
-		<!-- /wrapper -->
-
-
 		<!-- SCROLL TO TOP -->
-		<a href="#home" id="toTop"></a>
+		<a href="#" id="toTop"></a>
 
-
-		<%# <!-- PRELOADER -->
-		<div id="preloader">
-			<div class="inner">
-				<span class="loader"></span>
-			</div>
-		</div><!-- /PRELOADER --> %>
 
 
 		<!-- JAVASCRIPT FILES -->
 		<script>var plugin_path = 'assets/plugins/';</script>
+		<%= javascript_include_tag 'intervention' %>
+
 		
 
-		<script>
-			function myAlert() {
-				alert("Message sent!");
-		}
-		</script>
-
-         
-		<!-- 
-			GMAP.JS 
-			http://hpneo.github.io/gmaps/
-		-->
 	</body>
+
 </html>
