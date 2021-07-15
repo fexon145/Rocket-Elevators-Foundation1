@@ -158,28 +158,32 @@
 
 <%= form_for :intervention, url: url_for(controller: 'interventions', action: 'create'),  :html => {id: "interventionSubmit", :class => "text-center"} do |form|%>
 
+  <div class="col-md-12 text-center" style="display: none;">
+    <%= form.label :Author %>
+    <%= form.text_field :author_id %>
+  </div>
 
  <div class="col-md-12 text-center">
       <%= form.label :customer %>
       <%= form.select :customer_id, Customer.all.collect {|p| [p.compagny_name, p.id]} %>
   </div>
     
-  <div class="col-md-12 text-center"> 
+  <div id="buil" class="col-md-12 text-center"> 
     <%= form.label :building_id %>  
     <%= form.select :building_id, Building.all.collect{|p| [p.id]} %>
   </div>
 
-  <div class="col-md-12 text-center">
+  <div id="batt" class="col-md-12 text-center">
     <%= form.label :battery_id %>
     <%= form.select :battery_id, Battery.all.collect{|p| [p.id]} %>
   </div>
     <%# none %>
-  <div class="col-md-12 text-center">
+  <div id="coll" class="col-md-12 text-center">
     <%= form.label :column_id %>
     <%= form.select :column_id, Column.all.collect{|p| [p.id]} %>
   </div>
     <%# none %>
-  <div class="col-md-12 text-center">
+  <div id="elevv" class="col-md-12 text-center">
     <%= form.label :elevator_id %>
     <%= form.select :elevator_id, Elevator.all.collect{|p| [p.id]} %>
   </div>
@@ -189,29 +193,29 @@
     <%= form.select :employee_id, Employee.all.collect {|m| [m.first_name + " " + m.last_name, m.id]}, :include_blank => "None" %>
   </div>
 
-  <div class="col-md-12 text-center">
+  <div class="col-md-12 text-center" style="display: none;">
     <%= form.label :startdate %>
-    <%= form.datetime_select :startdate %>
+    <%= form.datetime_select :startdate  %>
   </div>
 
-  <div class="col-md-12 text-center">
+  <div class="col-md-12 text-center" style="display: none;">
     <%= form.label :enddate %>
     <%= form.text_field :enddate %>
   </div>
 
-  <div class="col-md-12 text-center">
+  <div class="col-md-12 text-center" style="display: none;">
     <%= form.label :result %>
-    <%= form.text_field :result %>
+    <%= form.text_field :result, value: "Incomplete" %>
   </div>
     <%# none %>
   <div class="col-md-12 text-center">
-    <%= form.label :report %>
+    <%= form.label :Description %>
     <%= form.text_area :report, rows: "15", cols: "60" %>
   </div>
 
-  <div class="col-md-12 text-center">
+  <div class="col-md-12 text-center" style="display: none;">
     <%= form.label :status %>
-    <%= form.text_field :status %>
+    <%= form.text_field :status, value: "Pending" %>
   </div>
 
   <div class="col-md-12 text-center">

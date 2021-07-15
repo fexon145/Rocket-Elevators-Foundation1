@@ -1,13 +1,37 @@
 Document.ready
 
+var buill = $("#buil")
+var batte = $("#batt")
+var collu = $("#coll")
+var elevve = $("#elevv")
+buill.hide();
+batte.hide();
+collu.hide();
+elevve.hide();
+
 //building
 $("#intervention_building_id").prop("disabled", true);
 $("#intervention_customer_id").change(function(){
   	var building = $(this).val();
   	if(building == ''){
   		$("#intervention_building_id").prop("disabled", true);
+			buill.hide();
+			batte.hide();
+			collu.hide();
+			elevve.hide();
+			// $("#intervention_building_id").empty();
+			// $("#intervention_battery_id").empty();
+			// $("#intervention_column_id").empty();
+			// $("#intervention_elevator_id").empty();
   	}else{
   		$("#intervention_building_id").prop("disabled", false);
+			buill.show();
+			batte.hide();
+			collu.hide();
+			elevve.hide();
+			// $("#intervention_battery_id").empty();
+			// $("#intervention_column_id").empty();
+			// $("#intervention_elevator_id").empty();
   	}
   	$.ajax({
 	    url: "/building_take/" + building,
@@ -36,15 +60,16 @@ $("#intervention_building_id").change(function(){
   	var battery = $(this).val();
   	if(battery == ''){
   		$("#intervention_battery_id").prop("disabled", true);
-
-		// $("#intervention_battery_id").empty();
-		// $("#intervention_column_id").empty();
-		// $("#intervention_elevator_id").empty();
+		
+		  batte.hide();
+		  collu.hide();
+		  elevve.hide();
   	}else{
   		$("#intervention_battery_id").prop("disabled", false);
 
-		// $("#intervention_column_id").empty();
-		// $("#intervention_elevator_id").empty();
+		  batte.show();
+		  collu.hide();
+		  elevve.hide();
   	}
   	$.ajax({
 	    url: "/battery_take/" + battery,
@@ -72,8 +97,12 @@ $("#intervention_battery_id").change(function(){
   	var column = $(this).val();
   	if(column == ''){
   		$("#intervention_column_id").prop("disabled", true);
+		  collu.hide();
+		  elevve.hide();
   	}else{
   		$("#intervention_column_id").prop("disabled", false);
+		  collu.show();
+		  elevve.hide();
   	}
   	$.ajax({
 	    url: "/column_take/" + column,
@@ -102,8 +131,10 @@ $("#intervention_column_id").change(function(){
   	var column = $(this).val();
   	if(column == ''){
   		$("#intervention_elevator_id").prop("disabled", true);
+		  elevve.hide();
   	}else{
   		$("#intervention_elevator_id").prop("disabled", false);
+		  elevve.show();
   	}
   	$.ajax({
 	    url: "/elevator_take/" + column,
