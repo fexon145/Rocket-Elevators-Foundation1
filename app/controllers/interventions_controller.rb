@@ -26,6 +26,12 @@ class InterventionsController < ApplicationController
   def create
     @intervention = Intervention.new(intervention_params)
 
+    if current_user.employee
+      @intervention.author_id = Employee.where(user_id: current_user.id)[0].id
+    else 
+      @intervention.author_id = 0
+    end  
+
     respond_to do |format|
       if @intervention.save
         format.html { redirect_to index_url, notice: "Intervention was successfully created." }
@@ -40,11 +46,7 @@ class InterventionsController < ApplicationController
     
     #battery
     def battery_take
-      puts "battery_take"
-      puts params
       @battery = Battery.where("building_id = ?", params[:building_id])
-      puts "here are the battery"
-      puts @battery
       if request.xhr?
       respond_to do |format|
         format.json { render :json => @battery}
@@ -54,11 +56,7 @@ class InterventionsController < ApplicationController
 
     # building 
     def building_take
-      puts "building_take"
-      puts params
       @buildings = Building.where("customer_id = ?", params[:customer_id])
-      puts "here are the buildings:"
-      puts @buildings
       if request.xhr?
         respond_to do |format|
           format.json { render :json => @buildings }
@@ -68,11 +66,7 @@ class InterventionsController < ApplicationController
 
     # #column
     def column_take
-      puts "column_take"
-      puts params
       @column = Column.where("battery_id = ?", params[:battery_id])
-      puts "here are the column"
-      puts @column
       if request.xhr?
       respond_to do |format|
         format.json { render :json => @column}
@@ -82,11 +76,7 @@ class InterventionsController < ApplicationController
 
     # #elevator
     def elevator_take
-      puts "elevator_take"
-      puts params
       @elevator = Elevator.where("column_id = ?", params[:column_id])
-      puts "here are the elevator"
-      puts @elevator
       if request.xhr?
       respond_to do |format|
         format.json { render :json => @elevator}

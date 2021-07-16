@@ -33,4 +33,3 @@ Rails.application.routes.draw do
   get 'elevator_take/:column_id', to: 'interventions#elevator_take'
   
 end
-
