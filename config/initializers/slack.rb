@@ -1,3 +1,3 @@
-require 'slack-notifier'
+# require 'slack-notifier'
 
-notifier = Slack::Notifier.new (ENV["SLACK_APIKEY"])
+# notifier = Slack::Notifier.new (ENV["SLACK_APIKEY"])

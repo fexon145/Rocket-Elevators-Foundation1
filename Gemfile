@@ -95,3 +95,8 @@ gem 'zendesk_api'
 
 gem 'ibm_watson'
 
+group :development, :test do
+  gem 'rspec-rails', '~> 4.1.0'
+end
+
+gem 'rest-client', '~> 2.1.0'

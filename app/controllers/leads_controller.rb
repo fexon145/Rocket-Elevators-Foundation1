@@ -4,6 +4,7 @@ class LeadsController < ApplicationController
   # GET /leads or /leads.json
   def index
     @leads = Lead.all
+    # redirect_to index_url   a revoir
   end
 
   # GET /leads/1 or /leads/1.json

@@ -22,6 +22,8 @@ Rails.application.routes.draw do
 
   get '/google', to: 'google#maps'
 
+  get '/chucknorris', to: 'website#chucknorris'
+
   post '/watson/greetings', to: 'watson#greetings'
 
   get 'building_take/:customer_id', to: 'interventions#building_take'
