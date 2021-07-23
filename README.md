@@ -1,3 +1,20 @@
+Week 9 -Consolidation of Achievements - Requirements Manual
+-During this week i did 
+-A new intervention Request Form
+-ZenDesk
+
+For the account you will need too see everything for Zendesk use
+Email: dontbanfor1week@hotmail.com
+Pw: Codeboxx
+
+Zendesk
+For zendesk i took all the info that was needed to make my Intervention
+Then i was able to make everything send to a email whit all the info
+Needed to make a good intervention
+
+link to my rest api repo 
+<https://github.com/fexon145/Rocket_Elevators_REST_API1
+
 Week 7 - Life is a Web Service
 
 During this week we used the following APIs in our website:
