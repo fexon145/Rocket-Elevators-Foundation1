@@ -1,10 +1,15 @@
 Week 10 Quality and TDD and Security
 
-this week i made a module call elevatormedia whit tdd follow the sept below to find more detail
+This week i made a module call elevatormedia whit tdd follow the sept below to find more detail
+
 -Go on lib / elevator_media then Streamer.rb
+
 -To test everything go on <https://rocketelevatorfexon.site/chucknorris
+
 -If you want to test if we got no error go on the code in terminal and use this command "bundle exec rspec"
+
 -For the security part i did a googledoc use
+
 this link to see all the thing i did <https://docs.google.com/document/d/1v3SVetmLM-c3OKGGe1VNwd3GDlsm-zBQqN1D8MBHwgs/edit?usp=sharing
 
 Week 9 -Consolidation of Achievements - Requirements Manual
